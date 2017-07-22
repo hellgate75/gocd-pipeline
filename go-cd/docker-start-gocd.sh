@@ -2,8 +2,6 @@
 
 RUNNING="$(ps -eaf| grep go-server|grep -v grep)"
 
-echo "COMMAND=$1"
-
 if [[ -z "$RUNNING" ]]; then
   if ! [[ -z "$PLUGIN_FILE_URL" ]]; then
     if ! [[ -e /root/plugins-list.txt ]]; then
