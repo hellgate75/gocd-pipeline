@@ -2,7 +2,7 @@
 
 cd /root
 CHANGES=""
-if [[ -e /root/systemfiles-list.txtt ]]; then
+if [[ -e /root/systemfiles-list.txt ]]; then
   SYSTEMFILES="$(cat /root/systemfiles-list.txt)"
   if ! [[ -z  "$SYSTEMFILES" ]]; then
     mkdir -p /root/plugins

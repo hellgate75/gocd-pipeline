@@ -4,6 +4,12 @@ RUNNING="$(ps -eaf| grep go-server|grep -v grep)"
 DAEMON_COMMAND="-daemon"
 
 if [[ -z "$RUNNING" ]]; then
+
+  if ! [[ -z "$GOCD_FILE_URL" ]]; then
+    download-system-file-gocd
+    install-system-file-gocd
+  fi
+
   if ! [[ -z "$PLUGIN_FILE_URL" ]]; then
     if ! [[ -e /root/plugins-list.txt ]]; then
       download-plugins-index-gocd
@@ -38,10 +44,6 @@ if [[ -z "$RUNNING" ]]; then
       tail -f  /var/log/go-server/go-server.out.log
     fi
   fi
-fi
-if ! [[ -z "$GOCD_FILE_URL" ]]; then
-  download-system-file-gocd
-  install-system-file-gocd
 fi
 
 echo "GoCD Server status : "
