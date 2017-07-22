@@ -14,7 +14,7 @@ if [[ -z "$RUNNING" ]]; then
   if [[ "$1" == "$DAEMON_COMMAND" ]]; then
     echo "GoCD Agent status : "
     status-gocd-agent
-    tail -f /var/log/go-agent/go-agent-bootstrapper.log
+    tail -f /usr/lib/go-agent/logs/go-agent-launcher.log
   fi
 fi
 

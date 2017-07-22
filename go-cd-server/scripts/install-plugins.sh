@@ -1,7 +1,7 @@
 #!/bin/bash
-RUNNING="$(ps -eaf| grep go-server|grep -v grep)"
 
 cd /root
+
 CHANGES=""
 if [[ -e /root/plugins-list.txt ]]; then
   PLUGINS="$(cat /root/plugins-list.txt)"
@@ -36,10 +36,3 @@ if [[ -e /root/plugins-list.txt ]]; then
 else
   echo "Plugins file not avaiable ..."
 fi
-
-
-# if [[ -z "$RUNNING" ]]; then
-#   echo "GoCD Server is NOT running!!"
-# else
-#   echo "GoCD Server is running!!"
-# fi

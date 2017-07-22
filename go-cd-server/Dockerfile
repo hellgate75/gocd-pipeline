@@ -5,6 +5,7 @@ MAINTAINER Fabrizio Torelli <hellgate75@gmail.com>
 ARG GOCD_VERSION=17.7.0-5147
 
 ENV PLUGIN_FILE_URL="" \
+    GOCD_FILE_URL="" \
     DAEMON=Y
 
 USER root
@@ -20,6 +21,8 @@ COPY scripts/stop-gocd.sh /usr/local/bin/stop-gocd
 COPY scripts/status-gocd.sh /usr/local/bin/status-gocd
 COPY scripts/install-plugins.sh /usr/local/bin/install-plugins-gocd
 COPY scripts/download-plugins-file.sh /usr/local/bin/download-plugins-index-gocd
+COPY scripts/install-system-files.sh /usr/local/bin/install-system-file-gocd
+COPY scripts/download-gocd-system-file.sh /usr/local/bin/download-system-file-gocd
 
 RUN apt-get update \
     && apt-get -y install git curl wget unzip python-setuptools vim git maven gradle golang \

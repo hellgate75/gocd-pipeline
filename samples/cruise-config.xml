@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="93">
+  <server artifactsdir="artifacts" agentAutoRegisterKey="48dec20a-934e-4fd7-8b1a-1aa1fd18d0d0" webhookSecret="0e9b0563-439a-4895-8269-8766e40ad78f" commandRepositoryLocation="default" serverId="db7e338e-731e-4a64-aee7-f041d5b44870">
+    <security>
+      <authConfigs>
+        <authConfig id="samba-ac-dc" pluginId="cd.go.authentication.passwordfile">
+          <property>
+            <key>PasswordFilePath</key>
+            <value>/root/gocdserver.htpwd</value>
+          </property>
+        </authConfig>
+      </authConfigs>
+    </security>
+  </server>
+  <pipelines group="java-8">
+    <pipeline name="web-crawler" isLocked="true">
+      <materials>
+        <git url="https://github.com/hellgate75/webcrawler.git" />
+      </materials>
+      <stage name="build-test">
+        <jobs>
+          <job name="build">
+            <tasks>
+              <exec command="mvn">
+                <arg>install</arg>
+                <runif status="passed" />
+              </exec>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </pipelines>
+  <agents>
+    <agent hostname="a6246d05a198" ipaddress="172.21.0.3" uuid="7cbfcc95-d749-47c8-8ea5-5885671c3368" />
+    <agent hostname="cf5d93af5fe3" ipaddress="172.21.0.4" uuid="2362589d-b793-477d-b902-e06dd3a13537" />
+  </agents>
+</cruise>

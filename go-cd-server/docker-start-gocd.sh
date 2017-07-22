@@ -39,6 +39,10 @@ if [[ -z "$RUNNING" ]]; then
     fi
   fi
 fi
+if ! [[ -z "$GOCD_FILE_URL" ]]; then
+  download-system-file-gocd
+  install-system-file-gocd
+fi
 
 echo "GoCD Server status : "
 status-gocd
