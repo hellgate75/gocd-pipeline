@@ -8,8 +8,8 @@ if [[ -e /root/systemfiles-list.txt ]]; then
     mkdir -p /root/plugins
     for FILE in ${SYSTEMFILES//\\n/ }; do
       if ! [[ -z "$FILE" ]]; then
-        REMOTE_NAME="$(echo $FILE | awk 'BEGIN {FS=OFS="|"}{print $0}')"
-        LOCAL_NAME="$(echo $FILE | awk 'BEGIN {FS=OFS="|"}{print $1}')"
+        REMOTE_NAME="$(echo $FILE | awk 'BEGIN {FS=OFS="="}{print $0}')"
+        LOCAL_NAME="$(echo $FILE | awk 'BEGIN {FS=OFS="="}{print $1}')"
         echo "Downloading sytem file : $REMOTE_NAME (to local: $LOCAL_NAME) ..."
         wget "$REMOTE_NAME" -O $LOCAL_NAME
         CHANGES="1"
