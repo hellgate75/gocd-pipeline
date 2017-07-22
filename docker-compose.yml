@@ -1,0 +1,75 @@
+version: '3.2'
+
+services:
+  gocd-server:
+    image: hellgate75/gocd-server:17.7.0
+    container_name: go-cd-server
+    volumes:
+      - go-server-plugins://usr/lib/go-server/plugins/external
+      - go-server-logs:/usr/lib/go-server/logs
+      - go-server-artifacts:/usr/lib/go-server/artifacts
+    ports:
+      - 8153:8153
+      - 8154:8154
+    dns:
+    - 8.8.8.8
+    - 1.1.1.1
+    networks:
+      go-cd-network:
+        aliases:
+          - gocdserver
+    environment:
+      - "PLUGIN_FILE_URL=https://raw.githubusercontent.com/hellgate75/gocd-pipeline/master/samples/plugins-list.txt"
+      - "GOCD_FILE_URL=https://raw.githubusercontent.com/hellgate75/gocd-pipeline/master/samples/systemfiles-list.txt"
+    cap_add:
+      - ALL
+    cap_drop:
+      - NET_ADMIN
+      - SYS_ADMIN
+  gocd-agent-1:
+    image: hellgate75/gocd-agent:17.7.0
+    container_name: go-cd-agent-1
+    dns:
+    - 8.8.8.8
+    - 1.1.1.1
+    links:
+      - "gocd-server:gocdserver"
+    environment:
+      - "GO_SERVER_URL=https://gocdserver:8154/go"
+      - "GO_AGENT_STARTUP_DELAY=300"
+    cap_add:
+      - ALL
+    cap_drop:
+      - NET_ADMIN
+      - SYS_ADMIN
+    networks:
+      go-cd-network:
+        aliases:
+          - gocdagent1
+  gocd-agent-2:
+    image: hellgate75/gocd-agent:17.7.0
+    container_name: go-cd-agent-2
+    dns:
+    - 8.8.8.8
+    - 1.1.1.1
+    links:
+      - "gocd-server:gocdserver"
+    environment:
+      - "GO_SERVER_URL=https://gocdserver:8154/go"
+      - "GO_AGENT_STARTUP_DELAY=300"
+    cap_add:
+      - ALL
+    cap_drop:
+      - NET_ADMIN
+      - SYS_ADMIN
+    networks:
+      go-cd-network:
+        aliases:
+          - gocdagent2
+networks:
+  go-cd-network:
+    #this should be an overlay network of a swarm cluster
+volumes:
+  go-server-plugins:
+  go-server-logs:
+  go-server-artifacts:
