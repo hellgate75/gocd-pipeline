@@ -1,6 +1,7 @@
 #!/bin/bash
 
 RUNNING="$(ps -eaf| grep go-server|grep -v grep)"
+DAEMON_COMMAND="-daemon"
 
 if [[ -z "$RUNNING" ]]; then
   if ! [[ -z "$PLUGIN_FILE_URL" ]]; then
@@ -24,17 +25,17 @@ if [[ -z "$RUNNING" ]]; then
     fi
     echo "Starting GoCD Server ..."
     start-gocd
-    if [[ "$1" == "-daemon" ]]; then
+    if [[ "$1" == "$DAEMON_COMMAND" ]]; then
       echo "GoCD Server status : "
       status-gocd
-      tail -f /var/log/go-server/bootstrap.log
+      tail -f  /var/log/go-server/go-server.out.log
     fi
   else
     start-gocd
-    if [[ "$1" == "-daemon" ]]; then
+    if [[ "$1" == "$DAEMON_COMMAND" ]]; then
       echo "GoCD Server status : "
       status-gocd
-      tail -f /var/log/go-server/bootstrap.log
+      tail -f  /var/log/go-server/go-server.out.log
     fi
   fi
 fi
@@ -42,12 +43,12 @@ fi
 echo "GoCD Server status : "
 status-gocd
 
-if [[ "$1" == "-daemon" ]]; then
+if [[ "$1" == "$DAEMON_COMMAND" ]]; then
   echo "Entering in sleep mode!!"
   tail -f /dev/null
 elif [[ $# -gt 1 ]]; then
-  echo "Executing command :  ${@:2:${#}}"
-  exec  ${@:2:${#}}
+  echo "Executing command :  ${@:1:${#}}"
+  exec  ${@:1:${#}}
 else
   echo "Nothing to do, quitting ..."
 fi
