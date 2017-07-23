@@ -6,8 +6,8 @@ Docker containers defined to realize Go Continuous Delivery Server.
 
 ## GoCD Pipeline docker containers
 
-* Go Continuous Delivery Server 17.7.0/[Dockerfile](https://github.com/hellgate75/gocd-pipeline/tree/1.17.0/go-cd-server/Dockerfile)
-* Go Continuous Delivery Agent 17.7.0/[Dockerfile](https://github.com/hellgate75/gocd-pipeline/tree/1.17.0/go-cd-agent/Dockerfile)
+* Go Continuous Delivery Server 17.7.0/[Dockerfile](https://github.com/hellgate75/gocd-pipeline/tree/17.7.0/go-cd-server/Dockerfile)
+* Go Continuous Delivery Agent 17.7.0/[Dockerfile](https://github.com/hellgate75/gocd-pipeline/tree/17.7.0/go-cd-agent/Dockerfile)
 
 #### How does it work?
 
@@ -17,14 +17,14 @@ It is a Continuous Delivery system. For more information please refer to [Go Con
 
 This system is a Server/Agent nodes, just to take a look we have already defined a couple of examples :
 
-* [Local build docker compose file](https://github.com/hellgate75/gocd-pipeline/tree/1.17.0/docker-compose-dev.yml)
-* [Remote Git Hub Repo compose file](https://github.com/hellgate75/gocd-pipeline/tree/1.17.0/docker-compose-dev.yml)
+* [Local build docker compose file](https://github.com/hellgate75/gocd-pipeline/tree/17.7.0/docker-compose-dev.yml)
+* [Remote Git Hub Repo compose file](https://github.com/hellgate75/gocd-pipeline/tree/17.7.0/docker-compose-dev.yml)
 
 
 Simulation will use fatures in following image containers :
 
 * [Go Continuos Delivery Server](s/go-cd-server)
-* [Go Continuos Delivery Server Agent](https://github.com/hellgate75/gocd-pipeline/tree/1.17.0/go-cd-agent)
+* [Go Continuos Delivery Server Agent](https://github.com/hellgate75/gocd-pipeline/tree/17.7.0/go-cd-agent)
 
 Access information :
 * Authorization user : admin/admin
