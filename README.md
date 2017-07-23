@@ -60,4 +60,4 @@ And in this case if you want remove the exampler you can run, in project root, f
 
 ### LICENSE
 
-[LGPL v.3](/LICENSE)
+[LGPL v.3](https://github.com/hellgate75/gocd-pipeline/tree/master/LICENSE)
