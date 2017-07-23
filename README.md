@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/hellgate75/gocd-pipeline/raw/master/images/gocd_logo.png" width="255" height="255" /></p>
+<p align="center"><img src="https://github.com/hellgate75/gocd-pipeline/raw/17.7.0/images/gocd_logo.png" width="255" height="255" /></p>
 
 # GoCD Make up your Pipeline
 
@@ -23,7 +23,7 @@ This system is a Server/Agent nodes, just to take a look we have already defined
 
 Simulation will use fatures in following image containers :
 
-* [Go Continuos Delivery Server](s/go-cd-server)
+* [Go Continuos Delivery Server](https://github.com/hellgate75/gocd-pipeline/tree/17.7.0/go-cd-server)
 * [Go Continuos Delivery Server Agent](https://github.com/hellgate75/gocd-pipeline/tree/17.7.0/go-cd-agent)
 
 Access information :
@@ -62,4 +62,4 @@ And in this case if you want remove the exampler you can run, in project root, f
 
 ### LICENSE
 
-[LGPL v.3](https://github.com/hellgate75/gocd-pipeline/tree/master/LICENSE)
+[LGPL v.3](https://github.com/hellgate75/gocd-pipeline/tree/17.7.0/LICENSE)
