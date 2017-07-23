@@ -3,12 +3,15 @@
 RUNNING="$(ps -eaf| grep go-server|grep -v grep)"
 DAEMON_COMMAND="-daemon"
 
-if [[ -z "$RUNNING" ]]; then
-
+function setupSystemFiles() {
   if ! [[ -z "$GOCD_FILE_URL" ]]; then
     download-system-file-gocd
     install-system-file-gocd
   fi
+}
+
+if [[ -z "$RUNNING" ]]; then
+
 
   if ! [[ -z "$PLUGIN_FILE_URL" ]]; then
     if ! [[ -e /root/plugins-list.txt ]]; then
@@ -26,6 +29,7 @@ if [[ -z "$RUNNING" ]]; then
         echo "Checking GoCD Server plugin status ..."
         install-plugins-gocd
       fi
+      setupSystemFiles
     else
       echo "Unable to install plugins!!"
     fi
@@ -37,6 +41,7 @@ if [[ -z "$RUNNING" ]]; then
       tail -f  /var/log/go-server/go-server.out.log
     fi
   else
+    setupSystemFiles
     start-gocd
     if [[ "$1" == "$DAEMON_COMMAND" ]]; then
       echo "GoCD Server status : "
