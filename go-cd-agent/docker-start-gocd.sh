@@ -2,7 +2,6 @@
 
 RUNNING="$(ps -eaf| grep go-agent|grep -v grep|grep -v tail)"
 DAEMON_COMMAND="-daemon"
-echo "PARAM1=$1"
 
 if [[ -z "$RUNNING" ]]; then
   if [[ $GO_AGENT_STARTUP_DELAY -gt 0 ]]; then
