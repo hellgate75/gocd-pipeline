@@ -1,5 +1,5 @@
 #!/bin/bash
-RUNNING="$(ps -eaf| grep go-server|grep -v grep)"
+RUNNING="$(ps -eaf| grep go-server|grep -v grep|grep -v tail)"
 
 if [[ -z "$RUNNING" ]]; then
   echo "GoCD Server is NOT running!!"

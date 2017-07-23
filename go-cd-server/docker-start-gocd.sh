@@ -1,6 +1,6 @@
 #!/bin/bash
 
-RUNNING="$(ps -eaf| grep go-server|grep -v grep)"
+RUNNING="$(ps -eaf| grep go-server|grep -v grep|grep -v tail)"
 DAEMON_COMMAND="-daemon"
 
 function setupSystemFiles() {

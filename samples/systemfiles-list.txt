@@ -1,2 +1,2 @@
-https://raw.githubusercontent.com/hellgate75/gocd-pipeline/master/samples/cruise-config.xml=/usr/lib/cruise-config.xml
+https://raw.githubusercontent.com/hellgate75/gocd-pipeline/master/samples/cruise-config.xml=/usr/lib/go-server/config/cruise-config.xml
 https://raw.githubusercontent.com/hellgate75/gocd-pipeline/master/samples/gocdserver.htpwd=/root/gocdserver.htpwd
