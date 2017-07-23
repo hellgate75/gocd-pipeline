@@ -1,3 +1,5 @@
+<p align="center"><img src="https://github.com/hellgate75/gocd-pipeline/tree/master/images/gocd_logo.png" width="255" height="255" /></p>
+
 # GoCD Make up your Pipeline
 
 Docker containers defined to realize Go Continuous Delivery Server.
