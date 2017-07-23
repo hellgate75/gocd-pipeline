@@ -42,7 +42,7 @@ services:
       - "gocd-server:gocdserver"
     environment:
       - "GO_SERVER_URL=https://gocdserver:8154/go"
-      - "GO_AGENT_STARTUP_DELAY=300"
+      - "GO_AGENT_STARTUP_DELAY=360"
     cap_add:
       - ALL
     cap_drop:
@@ -65,7 +65,7 @@ services:
       - "gocd-server:gocdserver"
     environment:
       - "GO_SERVER_URL=https://gocdserver:8154/go"
-      - "GO_AGENT_STARTUP_DELAY=300"
+      - "GO_AGENT_STARTUP_DELAY=360"
     cap_add:
       - ALL
     cap_drop:
